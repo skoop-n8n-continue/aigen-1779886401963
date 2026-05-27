@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&family=Orbitron:wght@700;900&family=Teko:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="command-center">
+    <!-- Background Effects -->
+    <div class="bg-layer bg-texture"></div>
+    <div class="bg-layer bg-grid"></div>
+    <div class="bg-layer bg-silhouettes">
+        <!-- Abstract equipment shapes or gradients -->
+        <div class="sil glow-1"></div>
+        <div class="sil glow-2"></div>
+    </div>
+    <div class="bg-layer neon-streaks">
+      <div class="streak s1"></div>
+      <div class="streak s2"></div>
+      <div class="streak s3"></div>
+    </div>
+    <div class="particles" id="particles"></div>
+
+    <div class="main-content">
+      <!-- Top Header -->
+      <header class="header">
+        <div class="header-left">
+          <div class="live-badge">
+            <span class="dot"></span> LIVE CLASS TIMETABLE
+          </div>
+          <h2 class="sub-heading">TODAY’S TRAINING SCHEDULE</h2>
+        </div>
+        <div class="header-right">
+          <div class="gym-logo">
+            <h1 class="logo-text">YOUR GYM FITNESS CLUB</h1>
+            <p class="logo-sub">Strength · Cardio · HIIT · Recovery</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-body">
+
+        <!-- Left Panel: Motivation -->
+        <div class="panel left-panel">
+          <div class="motivation-block">
+            <h1 class="hero-text">TRAIN HARDER<br><span class="text-lime">TODAY</span></h1>
+            <p class="hero-subline">Live classes, expert coaches, flexible memberships, and high-energy workouts for every fitness level.</p>
+
+            <div class="heart-rate-container">
+               <svg class="hr-line" viewBox="0 0 200 50">
+                 <path d="M0 25 L40 25 L50 10 L60 40 L70 25 L200 25" fill="none" stroke="#00E5FF" stroke-width="2" />
+               </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center Panel: Timeline & Countdown -->
+        <div class="panel center-panel">
+          <div class="center-stage">
+
+            <!-- Pulse Rings -->
+            <div class="pulse-rings">
+              <div class="ring r1"></div>
+              <div class="ring r2"></div>
+              <div class="ring r3"></div>
+            </div>
+
+            <!-- Central Countdown Module -->
+            <div class="countdown-module">
+              <svg class="progress-ring" width="460" height="460">
+                <circle class="ring-bg" cx="230" cy="230" r="220" />
+                <circle class="ring-fill" cx="230" cy="230" r="220" />
+                <!-- Tick marks will be added via JS -->
+              </svg>
+              <div class="countdown-content">
+                <div class="cd-label">NEXT CLASS STARTS IN</div>
+                <div class="cd-timer" id="main-timer">00:14:32</div>
+                <div class="cd-class" id="active-class-name">HIIT IGNITE</div>
+                <div class="cd-details" id="active-class-details">6:00 AM · Coach Maya · Zone 1</div>
+              </div>
+
+              <!-- Stat Widgets -->
+              <div class="stat-widget top-left">
+                <div class="stat-val">HIGH BURN</div>
+                <div class="stat-lbl">CALORIES</div>
+                <div class="stat-bar"><div class="stat-fill" style="width: 80%"></div></div>
+              </div>
+              <div class="stat-widget top-right">
+                <div class="stat-val">ADVANCED</div>
+                <div class="stat-lbl">LEVEL</div>
+                <div class="stat-bar"><div class="stat-fill cyan" style="width: 90%"></div></div>
+              </div>
+              <div class="stat-widget bottom-left">
+                <div class="stat-val">45 MIN</div>
+                <div class="stat-lbl">DURATION</div>
+                <div class="stat-bar"><div class="stat-fill" style="width: 60%"></div></div>
+              </div>
+              <div class="stat-widget bottom-right">
+                <div class="stat-val text-red">8 LEFT</div>
+                <div class="stat-lbl">SPOTS</div>
+                <div class="stat-bar"><div class="stat-fill red" style="width: 30%"></div></div>
+              </div>
+            </div>
+
+            <!-- Trainer Spotlight (near active class) -->
+            <div class="trainer-spotlight">
+              <div class="trainer-avatar">
+                <div class="avatar-ring"></div>
+                <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Maya&style=circle" alt="Coach Maya" id="coach-avatar">
+              </div>
+              <div class="trainer-info">
+                <div class="ts-label">COACH SPOTLIGHT</div>
+                <div class="ts-name" id="coach-name">MAYA</div>
+                <div class="ts-role" id="coach-role">HIIT Specialist</div>
+                <div class="ts-tags">Energy · Speed · Conditioning</div>
+              </div>
+            </div>
+
+            <!-- Curved Timeline -->
+            <div class="curved-timeline" id="timeline">
+              <!-- Rendered via JS -->
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Panel: Membership Offer -->
+        <div class="panel right-panel">
+          <div class="membership-tower">
+            <h2 class="tower-heading">JOIN TODAY</h2>
+            <div class="offer-price">$0 <span>ENROLLMENT</span></div>
+            <p class="offer-sub">Limited-time membership offer</p>
+
+            <button class="cta-btn pulse-btn">START FREE TRIAL</button>
+            <p class="secondary-cta">Ask the front desk or scan to join</p>
+
+            <div class="qr-box">
+              <div class="scan-line"></div>
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com/join&color=B6FF00&bgcolor=111318" alt="QR Code">
+              <div class="qr-label">SCAN TO JOIN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Area -->
+      <div class="footer-area">
+        <div class="category-strip">
+          <div class="cat-tab active">HIIT <div class="cat-bar"><div class="cb-fill"></div></div></div>
+          <div class="cat-tab">Strength <div class="cat-bar"><div class="cb-fill"></div></div></div>
+          <div class="cat-tab">Yoga <div class="cat-bar"><div class="cb-fill"></div></div></div>
+          <div class="cat-tab">Cycling <div class="cat-bar"><div class="cb-fill"></div></div></div>
+          <div class="cat-tab">Total Body <div class="cat-bar"><div class="cb-fill"></div></div></div>
+          <div class="cat-tab">Boxing <div class="cat-bar"><div class="cb-fill"></div></div></div>
+          <div class="cat-tab">Recovery <div class="cat-bar"><div class="cb-fill"></div></div></div>
+        </div>
+
+        <div class="ticker-wrap">
+          <div class="ticker-track">
+            <!-- Repeated content for infinite scroll -->
+            <div class="ticker-content">
+              JOIN TODAY <span class="sep">·</span> $0 ENROLLMENT <span class="sep">·</span> HIIT CLASSES <span class="sep">·</span> STRENGTH TRAINING <span class="sep">·</span> PERSONAL COACHING <span class="sep">·</span> FREE TRIAL PASS <span class="sep">·</span> RECOVERY ZONE <span class="sep">·</span> TRAIN HARDER TODAY <span class="sep">·</span>
+              JOIN TODAY <span class="sep">·</span> $0 ENROLLMENT <span class="sep">·</span> HIIT CLASSES <span class="sep">·</span> STRENGTH TRAINING <span class="sep">·</span> PERSONAL COACHING <span class="sep">·</span> FREE TRIAL PASS <span class="sep">·</span> RECOVERY ZONE <span class="sep">·</span> TRAIN HARDER TODAY <span class="sep">·</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
